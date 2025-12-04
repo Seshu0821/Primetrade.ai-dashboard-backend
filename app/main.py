@@ -8,7 +8,13 @@ from app.routes.tasks import router as tasks_router
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Scalable FastAPI App")
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.include_router(auth_router)
 app.include_router(profile_router)
 app.include_router(tasks_router)
