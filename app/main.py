@@ -3,6 +3,7 @@ from app.db.database import Base, engine
 from app.routes.auth import router as auth_router
 from app.routes.profile import router as profile_router
 from app.routes.tasks import router as tasks_router
+from fastapi.middleware.cors import CORSMiddleware
 
 
 Base.metadata.create_all(bind=engine)
