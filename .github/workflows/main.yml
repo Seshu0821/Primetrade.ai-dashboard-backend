@@ -1,0 +1,16 @@
+name: Test Cron 2
+
+on:
+  schedule:
+    - cron: "*/2 * * * *"  # Every 2 minutes
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print message
+        run: |
+          echo "Cron triggered 2"
+          date
